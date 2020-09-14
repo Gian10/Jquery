@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Eventos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src='js/jquery.js'></script>
+    <style>
+        input {
+            font-size: 2em;
+        }
+    </style>
+</head>
+
+<body class='conteudo exercicio'>
+    <h1>Eventos #01</h1>
+    <div id='posicao'></div>
+    <div id='cliques'>Cliques: 0</div>
+    <input type="text" placeholder="Cor de Background">
+
+    <script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        function posicaoMouse(e){
+            $('#posicao').html(`x: ${e.clientX} y: ${e.clientY}`)
+        }
+
+        // on dipara um evento mousemove
+        $('body').on('mousemove', posicaoMouse)
+        
+        // desativar o evento quando o mouse tiver da div id posicao
+        $('#posicao').mouseover(e =>{
+            $('body').off('mousemove', posicaoMouse)
+        })
+
+        // reativar evento quando o mouse sair da div id posicao
+        $('#posicao').mouseleave(e =>{
+            $('body').on('mousemove', posicaoMouse)
+        })
+
+        // evento de clique
+        let cliques = 0
+        $('body').click(e =>{
+            $('#cliques').html(`Cliques: ${cliques++}`)
+        })
+
+        const valorCor = $('body').css('background-color')
+        // callback com arrow não funciona nessa caso
+        $('input').keyup(function (e){
+           const valor = $(this).val()
+           console.log(valor)
+        })
+      
+
+    </script>
+</body>
